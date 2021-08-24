@@ -1,0 +1,51 @@
+<head>    
+    <link rel="stylesheet" type="text/css" href="static/styles.css" />
+    <title>Crazy Password</title>
+  </head>
+  {% block content %}
+     <div id="main">
+       <div class="avatar">
+        <svg class="avatar-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+        </path>
+      </svg>
+       </div>
+       <div class="box">
+         <div class="inner-box">
+      <h2>Log in</h2>
+      {% if form.errors %}
+          {{ form.errors }}
+      {% endif %}
+      <form method="post" class="">
+        <div class="form-field">
+          {{ form.as_p }}
+        </div>
+          {% csrf_token %}
+          <input type="submit" value="Log in" ></input>
+      </form>
+      <button id="switch" onclick ="reveal()" type="button">Switch to hard mode</button>
+    </div>
+    </div>
+  </div>
+      
+      <script>
+        let err = document.getElementsByClassName("errorlist");
+        err[0].style.display = "none";
+      function reveal()
+      {
+      let passField = document.getElementById('id_password');
+      let switchBtn = document.getElementById('switch');
+      if(passField.type =="text")
+           {
+             passField.type='password';
+             switchBtn.innerText = 'Switch to easy mode';
+           }
+      else {
+        passField.type='text';
+           switchBtn.innerText = 'Switch to hard mode';
+           }
+      }
+      
+      </script>
+  {% endblock content %}
+  

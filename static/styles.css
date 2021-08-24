@@ -1,0 +1,144 @@
+:root {
+    --htmlFontSize: 100%;
+    --bodyBackgroundColor: #2c3338;
+    --bodyColor: var(--baseColor);
+    --bodyFontFamily: "Open Sans";
+    --bodyFontFamilyFallback: sans-serif;
+    --bodyLineHeight: 1.5;
+  }
+
+* {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: var(--htmlFontSize);
+  }
+
+  body{
+    place-items: center;
+    background-color: var(--bodyBackgroundColor);
+    color: var(--bodyColor);
+    font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+    line-height: var(--bodyLineHeight);
+    margin: 0;
+}
+
+/* Index page */
+
+#main{
+    max-width: 450px;
+    margin: auto;
+    margin-top: 20vh;
+}
+
+@media only screen and (max-width: 500px) {
+    #main {
+        max-width: 350px;
+    }
+  }
+
+.inner-box{
+    inline-size: 90%;
+  margin-inline: auto;
+  max-inline-size: 400px;
+}
+
+.box{
+    background-color: #363B41;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 10px 5px 55px #222;
+}
+h2{
+    text-align: center;
+    color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+}
+#switch {
+    color: #eee;
+    outline: 0;
+    border: 0;
+    transition: .4s;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  #switch:hover {
+    text-decoration: underline;
+  }
+
+  input {
+    background-image: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    transition: background-color 0.3s;
+    inline-size: 100%;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  input[type="submit"] {
+    cursor: pointer;
+    background-color: #EA4C88;
+    text-transform: uppercase;
+    color: #eee;
+    font-weight: 800;
+    font-size: 0.8rem;
+    font-family: 'sans serif';
+    transition: .4s;
+  }
+
+  input[type="submit"]:hover{
+    background-color: #F74058;
+  }
+#id_password{
+    background-color: #3B4148;
+    color: #eee;
+}
+
+#id_password:focus{
+    border: 0.5px solid #F74058;
+    background-color: #2C3338;
+}
+  
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #EA4C88;
+  margin: auto;
+  position: absolute;
+  left: 40%;
+  right: 40%;
+  top: 14vh;
+  box-shadow: 10px 5px 55px #222;
+}
+
+.avatar-svg{
+    fill: #EEEEEE;
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+}
+label{
+  display: none;
+}
+
+form {
+    display: grid;
+    gap: 0.3rem;
+  }
+.errorlist{
+    padding-left: 0;
+    list-style: none;
+    font-size: 13px;
+    color: #F74058;
+}
