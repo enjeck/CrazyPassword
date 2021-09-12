@@ -1,0 +1,14 @@
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
+
+# Key
+*key.txt
+
+# env
+env
+
+# cache
+__pycache__
