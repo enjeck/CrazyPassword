@@ -14,10 +14,10 @@ from pathlib import Path
 import os
 import django_heroku
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATE_DIR = BASE_DIR/'templates'
-STATIC_DIR = BASE_DIR/'static'
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'CrazyPassword.urls'
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'CrazyPassword.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -149,8 +150,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR,]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
