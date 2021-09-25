@@ -12,3 +12,6 @@ env
 
 # cache
 __pycache__
+CrazyPasswordApp/__pycache__
+CrazyPassword/__pycache__
+
